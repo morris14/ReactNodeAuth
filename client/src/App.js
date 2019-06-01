@@ -7,6 +7,7 @@ import setAuthToken from "./utils/setAuthToken";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import Home from "./components/pages/Home";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 
@@ -25,7 +26,7 @@ const App = () => {
             <Router>
                 <Navbar />
                 <Switch>
-                    <Route exact path='/' component={Login} />
+                    <Route exact path='/' component={Home} />
                     <Route path='/login' component={Login} />
                     <Route path='/register' component={Register} />
                 </Switch>
