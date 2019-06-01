@@ -5,6 +5,11 @@ import store from "./store";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
 
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+
 import Navbar from "./components/layout/Navbar";
 
 // If a token is found in localStorage then set axios headers
@@ -17,8 +22,14 @@ const App = () => {
 
     return (
         <Provider store={store}>
-            <Navbar />
-            <div>App</div>
+            <Router>
+                <Navbar />
+                <Switch>
+                    <Route exact path='/' component={Login} />
+                    <Route path='/login' component={Login} />
+                    <Route path='/register' component={Register} />
+                </Switch>
+            </Router>
         </Provider>
     );
 };

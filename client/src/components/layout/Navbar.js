@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const authNav = (
@@ -11,8 +12,12 @@ const Navbar = () => {
     const guestNav = (
         <div>
             <ul>
-                <li>Log in</li>
-                <li>Register</li>
+                <li>
+                    <Link to='/login'>Log in</Link>
+                </li>
+                <li>
+                    <Link to='/register'>Register</Link>
+                </li>
             </ul>
         </div>
     );
