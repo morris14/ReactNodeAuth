@@ -17,6 +17,14 @@ export default function(state = initialState, action) {
                 loading: false,
                 user: payload,
             };
+        case AUTH_ERROR:
+            localStorage.removeItem("token");
+            return {
+                ...state,
+                token: null,
+                isAuthenticated: false,
+                loading: false,
+            };
         default:
             return state;
     }
