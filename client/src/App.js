@@ -1,17 +1,11 @@
 import React, { useEffect } from "react";
 import { Provider } from "react-redux";
-import store from "./store";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import { loadUser } from "./actions/auth";
+import RouteMapper from "./components/routing/RouteMapper";
 import setAuthToken from "./utils/setAuthToken";
-
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-import Home from "./components/pages/Home";
-import Login from "./components/auth/Login";
-import Register from "./components/auth/Register";
-
-import Navbar from "./components/layout/Navbar";
+import store from "./store";
 
 // If a token is found in localStorage then set axios headers
 if (localStorage.token) setAuthToken(localStorage.token);
@@ -24,12 +18,7 @@ const App = () => {
     return (
         <Provider store={store}>
             <Router>
-                <Navbar />
-                <Switch>
-                    <Route exact path='/' component={Home} />
-                    <Route path='/login' component={Login} />
-                    <Route path='/register' component={Register} />
-                </Switch>
+                <RouteMapper />
             </Router>
         </Provider>
     );

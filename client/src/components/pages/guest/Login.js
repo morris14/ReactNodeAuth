@@ -2,7 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { login } from "../../actions/auth";
+import { login } from "../../../actions/auth";
 
 const Login = ({ login, isAuthenticated }) => {
     const [formData, setFormData] = useState({
@@ -28,6 +28,7 @@ const Login = ({ login, isAuthenticated }) => {
 
     return (
         <Fragment>
+            <h1>Log in</h1>
             <form onSubmit={e => onSubmit(e)}>
                 <input
                     type='email'
