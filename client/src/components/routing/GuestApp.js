@@ -1,10 +1,9 @@
 import React, { Fragment } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import GuestHome from "../pages/guest/GuestHome";
 import GuestNav from "../layout/GuestNav";
 import Login from "../pages/guest/Login";
-import NotFound from "../pages/NotFound";
 import Register from "../pages/guest/Register";
 
 const GuestApp = () => {
@@ -15,7 +14,7 @@ const GuestApp = () => {
                 <Route exact path='/' component={GuestHome} />
                 <Route path='/login' component={Login} />
                 <Route path='/register' component={Register} />
-                <Route component={NotFound} />
+                <Route render={() => <Redirect to='/' />} />
             </Switch>
         </Fragment>
     );

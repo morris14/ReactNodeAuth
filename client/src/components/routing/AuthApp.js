@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import AuthHome from "../pages/auth/AuthHome";
 import AuthNav from "../layout/AuthNav";
-import NotFound from "../pages/NotFound";
 import Settings from "../pages/auth/Settings";
 
 const AuthApp = () => {
@@ -13,7 +12,7 @@ const AuthApp = () => {
             <Switch>
                 <Route exact path='/' component={AuthHome} />
                 <Route path='/settings' component={Settings} />
-                <Route component={NotFound} />
+                <Route render={() => <Redirect to='/' />} />
             </Switch>
         </Fragment>
     );
